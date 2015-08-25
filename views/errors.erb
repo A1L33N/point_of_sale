@@ -1,0 +1,12 @@
+<h1>Oops!</h1>
+
+<ul>
+  <% @product.errors().full_messages().each() do |message| %>
+  <li><%=message %></li>
+  <% end %>
+</ul>
+
+<p><a href="/products">Available Antiques</a></p>
+<p><a href="/purchases/new">Start New Purchase</a></p>
+<p><a href="/purchases">Purchase History</a></p>
+<p><a href="/customers">Customer History</a></p>

@@ -40,5 +40,13 @@ describe(Product) do
     end
   end
 
+  it('validates the presence of a name and numericality of a price') do
+    barbie = Product.create({:name => '', :price => "a", :purchased => true, :purchase_id => nil})
+    expect(barbie.save()).to eq(false)
+  end
 
+  it('converts the name to downcase letters before saving to database') do
+    barbie = Product.create({:name => 'BaRBIE', :price => 6.00, :purchased => true, :purchase_id => nil})
+    expect(barbie.name).to eq('barbie')
+  end
 end

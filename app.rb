@@ -17,7 +17,10 @@ get('/products') do
 end
 
 post('/products') do
-  @product = Product.create({:name => params.fetch('new_product'), :price => params.fetch('price').to_f, :purchase_id => nil, :purchased =>false})
-  erb(:success)
-
+  @product = Product.new({:name => params.fetch('product_name'), :price => params.fetch('product_price').to_f, :purchase_id => nil, :purchased =>false})
+  if @product.save
+    erb(:success)
+  else
+    erb(:errors)
+  end
 end
