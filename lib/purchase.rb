@@ -1,3 +1,4 @@
-class Purchase
-  # logic
+class Purchase < ActiveRecord::Base
+  belongs_to(:customer)
+  has_many(:products)
 end
