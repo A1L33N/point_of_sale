@@ -1,7 +1,7 @@
 require("spec_helper")
 
 describe(Customer) do
-  describe("#purchases") do
+  describe("#purchases") do #ActiveRecord::Base
     it 'returns the purchases the customer has made' do
       customer1 = Customer.create({:name => "Linda Hamilton"})
       saturday_shop = Purchase.create({:customer_id => customer1.id, :total => 6.07})
