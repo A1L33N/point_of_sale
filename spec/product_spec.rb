@@ -49,4 +49,16 @@ describe(Product) do
     barbie = Product.create({:name => 'BaRBIE', :price => 6.00, :purchased => true, :purchase_id => nil})
     expect(barbie.name).to eq('barbie')
   end
+
+  describe('#destroy') do #ActiveRecord::Base
+    it('deletes a database entry for a product') do
+      hot_wheel = Product.create({:name => 'Hot Wheel Toy', :price => 3.50, :purchased => false, :purchase_id => nil})
+      buzz_lightyear = Product.create({:name => 'Buzz Lightyear', :price => 24.97, :purchased => false, :purchase_id => nil})
+      tamagotchi = Product.create({:name => 'Tamagotchi', :price => 17.95, :purchased => true, :purchase_id => nil})
+      power_ranger = Product.create({:name => 'Power Ranger', :price => 12.49, :purchased => true, :purchase_id => nil})
+      barbie = Product.create({:name => 'Limited Edition Barbie', :price => 99.95, :purchased => true, :purchase_id => nil})
+      hot_wheel.destroy()
+      expect(Product.all()).to eq([buzz_lightyear, tamagotchi, power_ranger, barbie])
+    end
+  end
 end
