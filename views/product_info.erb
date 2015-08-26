@@ -1,0 +1,11 @@
+<h2><%= @product.name %> details</h2>
+<p>Price: $<%= @product.price %></p>
+
+<h4>Update <%= @product.name %></h4>
+<form class="" action="/products/<%=@product.id%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input id="name" type="text" name="name" placeholder="Update name">
+  <input id="price" type="text" name="price" placeholder="Update price">
+  <button type="submit" name="button">Update item</button>
+</form>
+<p><a href="/products">Return to Available Antiques</a></p>
